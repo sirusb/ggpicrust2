@@ -1,3 +1,45 @@
+# ggpicrust2 2.3.2
+
+## Bug Fixes
+
+* Fixed MetaCyc pathway annotation NA description issue (#154):
+  - Standardized MetaCyc reference data column names from 'X1'/'X2' to 'id'/'description'
+  - Applied fix in all three loading paths of load_reference_data function
+  - Resolves column name mismatch that caused all MetaCyc annotations to return NA
+  - Tested with 100% success rate on sample data
+  - Maintains backward compatibility with KO and EC pathway types
+
+# ggpicrust2 2.3.1
+
+## Bug Fixes
+
+* Fixed MetaCyc reference data loading issue:
+  - Enhanced the file search mechanism in the `load_reference_data` function
+  - Added multiple search paths for reference data files
+  - Improved error messages with more diagnostic information
+  - Fixed "Reference data file not found" error that some users encountered
+
+# ggpicrust2 2.3.0
+
+## Bug Fixes
+
+* Fixed NA handling in pathway_errorbar function:
+  - Improved handling of NA values in the feature column
+  - Added robust error checking for group ordering option
+  - Prevents errors when processing MetaCyc pathway data with missing annotations
+
+* Enhanced pathway_pca function to handle zero variance data:
+  - Automatically detects and filters out columns (samples) with zero variance
+  - Automatically detects and filters out rows (pathways) with zero variance
+  - Updates metadata to match remaining samples after filtering
+  - Provides informative warnings about removed samples/pathways
+  - Improves error handling with clear diagnostic messages
+
+* Fixed file extension handling in ko2kegg_abundance function:
+  - Resolved "the condition has length > 1" error when processing files
+  - Improved extension detection for different file types
+  - Enhanced robustness for handling various input formats
+
 # ggpicrust2 2.2.2
 
 ## Bug Fixes
